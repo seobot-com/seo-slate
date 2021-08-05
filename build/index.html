@@ -315,7 +315,33 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#google" class="toc-h1 toc-link" data-title="Google">Google</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#regular-search" class="toc-h2 toc-link" data-title="Regular Search">Regular Search</a>
+                  </li>
+                  <li>
+                    <a href="#search-by-image" class="toc-h2 toc-link" data-title="Search by Image">Search by Image</a>
+                  </li>
+                  <li>
+                    <a href="#maps" class="toc-h2 toc-link" data-title="Maps">Maps</a>
+                  </li>
+                  <li>
+                    <a href="#reviews" class="toc-h2 toc-link" data-title="Reviews">Reviews</a>
+                  </li>
+                  <li>
+                    <a href="#trends" class="toc-h2 toc-link" data-title="Trends">Trends</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#bing" class="toc-h1 toc-link" data-title="Bing">Bing</a>
+          </li>
+          <li>
+            <a href="#yandex" class="toc-h1 toc-link" data-title="Yandex">Yandex</a>
+          </li>
+          <li>
+            <a href="#duckduckgo" class="toc-h1 toc-link" data-title="DuckDuckGo">DuckDuckGo</a>
           </li>
           <li>
             <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
@@ -344,12 +370,254 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Insert sample text here ;3.</p>
+<h1 id='google'>Google</h1>
+<p>Describe google search engine endpoint here</p>
+<h2 id='regular-search'>Regular Search</h2>
+<p>Describe regular search here</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/google/search</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keywords</td>
+<td>String</td>
+<td>Yes</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>langauge</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>Bool</td>
+<td>No</td>
+<td>false</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>Int</td>
+<td>No</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr>
+<td>uule</td>
+<td>String</td>
+<td>No</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>String</td>
+<td>No</td>
+<td>Regular</td>
+<td></td>
+</tr>
+<tr>
+<td>num</td>
+<td>Int</td>
+<td>No</td>
+<td>10</td>
+<td></td>
+</tr>
+</tbody></table>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+<h2 id='search-by-image'>Search by Image</h2>
+<p>Describe image search here</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://example.com/google/images</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>image_url</td>
+<td>String</td>
+<td>Yes</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>download</td>
+<td>Bool</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+</tbody></table>
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+<h2 id='maps'>Maps</h2>
+<p>Describe maps search here</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://example.com/google/maps</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>keywords</td>
+<td>String</td>
+<td>Yes</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>langauge</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>Int</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>num</td>
+<td>Int</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+<h2 id='reviews'>Reviews</h2>
+<p>Describe reviwes search here</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://example.com/google/reviews</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>langauge</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>filter</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>start</td>
+<td>Int</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>String</td>
+<td>No</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>fid</td>
+<td>String</td>
+<td>Yes</td>
+<td>N/A</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+<h2 id='trends'>Trends</h2>
+<p>Describe trends search here</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET http://example.com/google/trends</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>keywords  |String| Yes      | N/A     ||
+category  |String| No       | N/A     ||
+langauge  |String| No       | N/A     ||
+country   |String| No       | N/A     ||
+start     |String| No       | N/A     ||
+stop      |String| No       | N/A     ||
+date      |String| No       | N/A     ||
+type      |String| No       | N/A     ||</p>
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+<h1 id='bing'>Bing</h1><h1 id='yandex'>Yandex</h1><h1 id='duckduckgo'>DuckDuckGo</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
@@ -415,9 +683,9 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -469,7 +737,7 @@ Remember — a happy kitten is an authenticated kitten!
 <p>This endpoint retrieves a specific kitten.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -508,7 +776,7 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
