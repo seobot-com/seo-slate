@@ -1,10 +1,10 @@
 ---
-title: API Reference
+title: SEOBot API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
   - python
+  - golang
   - javascript
 
 toc_footers:
