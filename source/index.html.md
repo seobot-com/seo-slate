@@ -21,13 +21,132 @@ code_clipboard: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Insert sample text here ;3.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# Google
+ 
+ Describe google search engine endpoint here
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+## Regular Search
 
-# Authentication
+Describe regular search here
+
+### HTTP Request
+
+`GET http://example.com/google/search`
+
+### Query Parameters
+
+Parameter | Type | Required | Default | Description
+--------- | ---- | -------- | --------| -----------
+keywords  |String| Yes      | N/A     ||
+langauge  |String| No       | N/A     ||
+country   |String| No       | N/A     ||
+mobile    | Bool | No       | false   ||
+start     | Int  | No       | 0       ||
+uule      |String| No       | None    ||
+type      |String| No       | Regular ||
+num       | Int  | No       | 10      ||
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+
+## Search by Image
+
+Describe image search here
+
+### HTTP Request
+
+`GET http://example.com/google/images`
+
+### Query Parameters
+
+Parameter | Type | Required | Default | Description
+--------- | ---- | -------- | --------| -----------
+image_url |String| Yes      | N/A     ||
+download  | Bool | No       | N/A     ||
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+
+## Maps
+
+Describe maps search here
+
+### HTTP Request
+
+`GET http://example.com/google/maps`
+
+### Query Parameters
+
+Parameter | Type | Required | Default | Description
+--------- | ---- | -------- | --------| -----------
+keywords  |String| Yes      | N/A     ||
+langauge  |String| No       | N/A     ||
+country   |String| No       | N/A     ||
+start     | Int  | No       | N/A     ||
+num       | Int  | No       | N/A     ||
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+
+## Reviews
+
+Describe reviwes search here
+
+### HTTP Request
+
+`GET http://example.com/google/reviews`
+
+### Query Parameters
+
+Parameter | Type | Required | Default | Description
+--------- | ---- | -------- | --------| -----------
+langauge  |String| No       | N/A     ||
+filter    |String| No       | N/A     ||
+start     | Int  | No       | N/A     ||
+sort      |String| No       | N/A     ||
+fid       |String| Yes      | N/A     ||
+
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+
+## Trends
+
+Describe trends search here
+
+### HTTP Request
+
+`GET http://example.com/google/trends`
+
+### Query Parameters
+
+Parameter | Type | Required | Default | Description
+--------- | ---- | -------- | --------| -----------
+
+keywords  |String| Yes      | N/A     ||
+category  |String| No       | N/A     ||
+langauge  |String| No       | N/A     ||
+country   |String| No       | N/A     ||
+start     |String| No       | N/A     ||
+stop      |String| No       | N/A     ||
+date      |String| No       | N/A     ||
+type      |String| No       | N/A     ||
+
+<aside class="info">
+Note — any parameters included in the request that are not specified in the table above will be ignored!
+</aside>
+
+# Bing
+
+# Yandex
+
+# DuckDuckGo
 
 > To authorize, use this code:
 
