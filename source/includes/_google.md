@@ -9,7 +9,7 @@
   "keywords": "{Keywords}",
   "mobile"  : true/false,
   "type"    : "{Type}",
-  "langauge": "{Language code}",
+  "language": "{Language code}",
   "country" : "{Country code}",
   "uule"    : "{UULE}",
   "start"   : {Start},
@@ -20,7 +20,6 @@
 > Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
-# Ensure that the data being supplied is in a valid json format
 curl 'http://example.com/google/search' \
      -H 'Content-Type: application/json' \
      -d '{
@@ -28,7 +27,7 @@ curl 'http://example.com/google/search' \
              "mobile"  : false,
              "type"    : "shop",
 
-             "langauge": "en",
+             "language": "en",
              "country" : "za",
              "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
 
@@ -52,15 +51,19 @@ payload = {
 
              "start"   : 5,
              "num"     : 3
-         }
+          }
 
 request = requests.post('http://example.com/google/search', json=payload)
-
-# This line is optional, request.text() will return the result as a JSON formatted string
 result = json.loads(request.text())
 ```
 
 ```go
+import (
+	"encoding/json"
+	"net/http"
+	"strings"
+)
+
 payload := strings.NewReader(`{
              "keywords": "seo bot api",
              "mobile"  : False,
@@ -110,7 +113,7 @@ const payload = {
                 "num"     : 3
             };
 
-fetch('http://localhost:54453/google/search', {
+fetch('http://example.com/google/search', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -173,12 +176,11 @@ Note — any parameters included in the request that are not specified in the ta
 > Note that fields which are not required may be omitted from the request. An example of a search-by-image request is given below:
 
 ```shell
-# Ensure that the data being supplied is in a valid json format
 curl 'http://example.com/google/images' \
      -H 'Content-Type: application/json' \
      -d '{
              "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
-             "download  : false
+             "download" : false
          }'
 ```
 
@@ -188,19 +190,23 @@ import json
 
 payload = {
              "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
-             "download  : false
+             "download" : False
          }
 
 request = requests.post('http://example.com/google/images', json=payload)
-
-# This line is optional, request.text() will return the result as a JSON formatted string
 result = json.loads(request.text())
 ```
 
 ```go
+import (
+	"encoding/json"
+	"net/http"
+	"strings"
+)
+
 payload := strings.NewReader(`{
              "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
-             "download  : false
+             "download" : false
          }`)
 
 request, err := http.NewRequest("POST", "http://example.com/google/images", payload)
@@ -228,10 +234,10 @@ const fetch = require("node-fetch");
 
 const payload = {
               "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
-              "download  : false
+              "download" : false
             };
 
-fetch('http://localhost:54453/google/images', {
+fetch('http://example.com/google/images', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -281,7 +287,6 @@ Note — any parameters included in the request that are not specified in the ta
 > Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
-# Ensure that the data being supplied is in a valid json format
 curl 'http://example.com/google/reviews' \
      -H 'Content-Type: application/json' \
      -d '{
@@ -308,12 +313,16 @@ payload = {
          }
 
 request = requests.post('http://example.com/google/reviews', json=payload)
-
-# This line is optional, request.text() will return the result as a JSON formatted string
 result = json.loads(request.text())
 ```
 
 ```go
+import (
+	"encoding/json"
+	"net/http"
+	"strings"
+)
+
 payload := strings.NewReader(`{
             "fid"     : "{Feature ID}",
             "filter"  : "Nice food",
@@ -355,7 +364,7 @@ const payload = {
              "start"   : 5
             };
 
-fetch('http://localhost:54453/google/reviews', {
+fetch('http://example.com/google/reviews', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -405,7 +414,7 @@ Note — any parameters included in the request that are not specified in the ta
   "keywords": "{Keywords}",
   "category": {Category code},
   "type"    : "{Type}",
-  "langauge": "{Language code}",
+  "language": "{Language code}",
   "country" : "{Country code}",
   "date"    : "{Date option}",
   "start"   : "{Custom Start}",
@@ -416,7 +425,6 @@ Note — any parameters included in the request that are not specified in the ta
 > Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
-# Ensure that the data being supplied is in a valid json format
 curl 'http://example.com/google/trends' \
      -H 'Content-Type: application/json' \
      -d '{
@@ -424,7 +432,7 @@ curl 'http://example.com/google/trends' \
              "category": 0,
              "type"    : "google",
 
-             "langauge": "en",
+             "language": "en",
              "country" : "za",
 
              "date"    : "now 7-d",
@@ -442,7 +450,7 @@ payload = {
              "category": 0,
              "type"    : "google",
 
-             "langauge": "en",
+             "language": "en",
              "country" : "za",
 
              "date"    : "now 7-d"
@@ -451,18 +459,22 @@ payload = {
          }
 
 request = requests.post('http://example.com/google/trends', json=payload)
-
-# This line is optional, request.text() will return the result as a JSON formatted string
 result = json.loads(request.text())
 ```
 
 ```go
+import (
+	"encoding/json"
+	"net/http"
+	"strings"
+)
+
 payload := strings.NewReader(`{
              "keywords": "seo bot api",
              "category": 0,
              "type"    : "google",
 
-             "langauge": "en",
+             "language": "en",
              "country" : "za",
 
              "date"    : "now 7-d"
@@ -498,7 +510,7 @@ const payload = {
              "category": 0,
              "type"    : "google",
 
-             "langauge": "en",
+             "language": "en",
              "country" : "za",
 
              "date"    : "now 7-d"
