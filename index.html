@@ -356,7 +356,21 @@
 <p>Some intro stuff</p>
 <h1 id='google'>Google</h1><h2 id='search-by-text'>Search by Text</h2>
 <blockquote>
-<p>An example of a search-by-text request is given below:</p>
+<p>The request body must be sent in JSON format with the following structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{Keywords}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"mobile"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="err">/</span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Type}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"langauge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{Language code}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"country"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Country code}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"uule"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"{UULE}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"start"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">Start</span><span class="p">},</span><span class="w">
+  </span><span class="nl">"num"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">Num</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Ensure that the data being supplied is in a valid json format</span>
 curl <span class="s1">'http://example.com/google/search'</span> <span class="se">\</span>
@@ -454,26 +468,6 @@ curl <span class="s1">'http://example.com/google/search'</span> <span class="se"
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns a JSON object structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
 <p>This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
 <h3 id='http-endpoint'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/search</code></p>
@@ -561,7 +555,15 @@ Note — any parameters included in the request that are not specified in the ta
 </aside>
 <h2 id='search-by-image'>Search by Image</h2>
 <blockquote>
-<p>An example of a search-by-image request is given below:</p>
+<p>The request body must be sent in JSON format with the following structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"image_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Image URL}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"download"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="err">/</span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Note that fields which are not required may be omitted from the request. An example of a search-by-image request is given below:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Ensure that the data being supplied is in a valid json format</span>
 curl <span class="s1">'http://example.com/google/images'</span> <span class="se">\</span>
@@ -627,26 +629,6 @@ fetch('http://localhost:54453/google/images', {
   console.error('Error:', error);
 });
 </span></code></pre></div>
-<blockquote>
-<p>The above command returns a JSON object structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
 <p>This endpoint performs a Google search-by-image and returns the results in json format.</p>
 <h3 id='http-endpoint-2'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/images</code></p>
@@ -678,7 +660,18 @@ Note — any parameters included in the request that are not specified in the ta
 </aside>
 <h2 id='reviews'>Reviews</h2>
 <blockquote>
-<p>An example of a search-by-text request is given below:</p>
+<p>The request body must be sent in JSON format with the following structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"fid"</span><span class="w">     </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Feature ID}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"filter"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Filter words}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sort"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Sort option}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{Language code}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"start"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">Start</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Ensure that the data being supplied is in a valid json format</span>
 curl <span class="s1">'http://example.com/google/reviews'</span> <span class="se">\</span>
@@ -760,26 +753,6 @@ curl <span class="s1">'http://example.com/google/reviews'</span> <span class="se
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns a JSON object structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
 <p>This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
 <h3 id='http-endpoint-3'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/reviews</code></p>
@@ -839,20 +812,34 @@ Note — any parameters included in the request that are not specified in the ta
 </aside>
 <h2 id='trends'>Trends</h2>
 <blockquote>
-<p>An example of a search-by-text request is given below:</p>
+<p>The request body must be sent in JSON format with the following structure:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{Keywords}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">Category</span><span class="w"> </span><span class="err">code</span><span class="p">},</span><span class="w">
+  </span><span class="nl">"type"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Type}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"langauge"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{Language code}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"country"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Country code}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"date"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Date option}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"start"</span><span class="w">   </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Custom Start}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"stop"</span><span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="s2">"{Custom Stop}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Ensure that the data being supplied is in a valid json format</span>
 curl <span class="s1">'http://example.com/google/trends'</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
      <span class="nt">-d</span> <span class="s1">'{
              "keywords": "seo bot api",
-             "category": false,
+             "category": 0,
              "type"    : "google",
 
              "langauge": "en",
              "country" : "za",
 
-             "date"    : "now 7-d"
+             "date"    : "now 7-d",
              "start"   : "2021-01-01",
              "stop"    : "2021-07-01"
          }'</span>
@@ -861,7 +848,7 @@ curl <span class="s1">'http://example.com/google/trends'</span> <span class="se"
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
              <span class="s">"keywords"</span><span class="p">:</span> <span class="s">"seo bot api"</span><span class="p">,</span>
-             <span class="s">"category"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+             <span class="s">"category"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
              <span class="s">"type"</span>    <span class="p">:</span> <span class="s">"google"</span><span class="p">,</span>
 
              <span class="s">"langauge"</span><span class="p">:</span> <span class="s">"en"</span><span class="p">,</span>
@@ -878,7 +865,7 @@ curl <span class="s1">'http://example.com/google/trends'</span> <span class="se"
 </span><span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">())</span>
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="n">payload</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">`{
              "keywords": "seo bot api",
-             "category": false,
+             "category": 0,
              "type"    : "google",
 
              "langauge": "en",
@@ -911,7 +898,7 @@ curl <span class="s1">'http://example.com/google/trends'</span> <span class="se"
 
 <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
              <span class="dl">"</span><span class="s2">keywords</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">seo bot api</span><span class="dl">"</span><span class="p">,</span>
-             <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+             <span class="dl">"</span><span class="s2">category</span><span class="dl">"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
              <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span>    <span class="p">:</span> <span class="dl">"</span><span class="s2">google</span><span class="dl">"</span><span class="p">,</span>
 
              <span class="dl">"</span><span class="s2">langauge</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span><span class="p">,</span>
@@ -937,26 +924,6 @@ curl <span class="s1">'http://example.com/google/trends'</span> <span class="se"
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
-<blockquote>
-<p>The above command returns a JSON object structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
 <p>This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
 <h3 id='http-endpoint-4'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/trends</code></p>
