@@ -2,7 +2,22 @@
 
 ## Search by Text
 
-> An example of a search-by-text request is given below:
+> The request body must be sent in JSON format with the following structure:
+
+```json
+{
+  "keywords": "{Keywords}",
+  "mobile"  : true/false,
+  "type"    : "{Type}",
+  "langauge": "{Language code}",
+  "country" : "{Country code}",
+  "uule"    : "{UULE}",
+  "start"   : {Start},
+  "num"     : {Num}
+}
+```
+
+> Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
 # Ensure that the data being supplied is in a valid json format
@@ -111,27 +126,6 @@ fetch('http://localhost:54453/google/search', {
 });
 ```
 
-> The above command returns a JSON object structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
 This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
 ### HTTP Endpoint
@@ -167,7 +161,16 @@ Note — any parameters included in the request that are not specified in the ta
 
 ## Search by Image
 
-> An example of a search-by-image request is given below:
+> The request body must be sent in JSON format with the following structure:
+
+```json
+{
+  "image_url" : "{Image URL}",
+  "download"  : true/false
+}
+```
+
+> Note that fields which are not required may be omitted from the request. An example of a search-by-image request is given below:
 
 ```shell
 # Ensure that the data being supplied is in a valid json format
@@ -244,27 +247,6 @@ fetch('http://localhost:54453/google/images', {
 });
 ```
 
-> The above command returns a JSON object structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
 This endpoint performs a Google search-by-image and returns the results in json format.
 
 ### HTTP Endpoint
@@ -284,7 +266,19 @@ Note — any parameters included in the request that are not specified in the ta
 
 ## Reviews
 
-> An example of a search-by-text request is given below:
+> The request body must be sent in JSON format with the following structure:
+
+```json
+{
+  "fid"     : "{Feature ID}",
+  "filter"  : "{Filter words}",
+  "sort"    : "{Sort option}",
+  "language": "{Language code}",
+  "start"   : {Start}
+}
+```
+
+> Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
 # Ensure that the data being supplied is in a valid json format
@@ -377,27 +371,6 @@ fetch('http://localhost:54453/google/reviews', {
 });
 ```
 
-> The above command returns a JSON object structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
 This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
 ### HTTP Endpoint
@@ -425,7 +398,22 @@ Note — any parameters included in the request that are not specified in the ta
 
 ## Trends
 
-> An example of a search-by-text request is given below:
+> The request body must be sent in JSON format with the following structure:
+
+```json
+{
+  "keywords": "{Keywords}",
+  "category": {Category code},
+  "type"    : "{Type}",
+  "langauge": "{Language code}",
+  "country" : "{Country code}",
+  "date"    : "{Date option}",
+  "start"   : "{Custom Start}",
+  "stop"    : "{Custom Stop}"
+}
+```
+
+> Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
 # Ensure that the data being supplied is in a valid json format
@@ -433,13 +421,13 @@ curl 'http://example.com/google/trends' \
      -H 'Content-Type: application/json' \
      -d '{
              "keywords": "seo bot api",
-             "category": false,
+             "category": 0,
              "type"    : "google",
 
              "langauge": "en",
              "country" : "za",
 
-             "date"    : "now 7-d"
+             "date"    : "now 7-d",
              "start"   : "2021-01-01",
              "stop"    : "2021-07-01"
          }'
@@ -451,7 +439,7 @@ import json
 
 payload = {
              "keywords": "seo bot api",
-             "category": false,
+             "category": 0,
              "type"    : "google",
 
              "langauge": "en",
@@ -471,7 +459,7 @@ result = json.loads(request.text())
 ```go
 payload := strings.NewReader(`{
              "keywords": "seo bot api",
-             "category": false,
+             "category": 0,
              "type"    : "google",
 
              "langauge": "en",
@@ -507,7 +495,7 @@ const fetch = require("node-fetch");
 
 const payload = {
              "keywords": "seo bot api",
-             "category": false,
+             "category": 0,
              "type"    : "google",
 
              "langauge": "en",
@@ -532,27 +520,6 @@ fetch('http://localhost:54453/google/trends', {
 .catch((error) => {
   console.error('Error:', error);
 });
-```
-
-> The above command returns a JSON object structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
 ```
 
 This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request's parameters.
