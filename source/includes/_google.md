@@ -2,6 +2,136 @@
 
 ## Search by Text
 
+> An example of a search-by-text request is given below:
+
+```shell
+# Ensure that the data being supplied is in a valid json format
+curl 'http://example.com/google/search' \
+     -H 'Content-Type: application/json' \
+     -d '{
+             "keywords": "seo bot api",
+             "mobile"  : false,
+             "type"    : "shop",
+
+             "langauge": "en",
+             "country" : "za",
+             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
+
+             "start"   : 5,
+             "num"     : 3
+         }'
+```
+
+```python
+import requests
+import json
+
+payload = {
+             "keywords": "seo bot api",
+             "mobile"  : False,
+             "type"    : "shop",
+
+             "language": "en",
+             "country" : "za",
+             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
+
+             "start"   : 5,
+             "num"     : 3
+         }
+
+request = requests.post('http://example.com/google/search', json=payload)
+
+# This line is optional, request.text() will return the result as a JSON formatted string
+result = json.loads(request.text())
+```
+
+```go
+payload := strings.NewReader(`{
+             "keywords": "seo bot api",
+             "mobile"  : False,
+             "type"    : "shop",
+
+             "language": "en",
+             "country" : "za",
+             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
+
+             "start"   : 5,
+             "num"     : 3
+         }`)
+
+request, err := http.NewRequest("POST", "http://example.com/google/search", payload)
+if err != nil {
+  // Error handling...
+}
+request.Header.Set("Content-Type", "application/json")
+
+client := &http.Client{}
+response, err := client.Do(request)
+if err != nil {
+  // Error handling...
+}
+  
+var result string
+err := json.NewDecoder(resp.Body).Decode(&response)
+if err != nil {
+  // Error handling...
+}
+// result now contains the response body as a JSON formatted string
+```
+
+```javascript
+const fetch = require("node-fetch");
+
+const payload = {
+                "keywords": "seo bot api",
+                "mobile"  : false,
+                "type"    : "isch",
+
+                "language": "en",
+                "country" : "za",
+                "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
+
+                "start"   : 5,
+                "num"     : 3
+            };
+
+fetch('http://localhost:54453/google/search', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+})
+.then((response) => response.json())
+.then((result) => {
+  console.log('Result:', result);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+```
+
+> The above command returns a JSON object structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
 This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
 ### HTTP Endpoint
