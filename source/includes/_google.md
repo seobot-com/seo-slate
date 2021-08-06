@@ -167,6 +167,104 @@ Note — any parameters included in the request that are not specified in the ta
 
 ## Search by Image
 
+> An example of a search-by-image request is given below:
+
+```shell
+# Ensure that the data being supplied is in a valid json format
+curl 'http://example.com/google/images' \
+     -H 'Content-Type: application/json' \
+     -d '{
+             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+             "download  : false
+         }'
+```
+
+```python
+import requests
+import json
+
+payload = {
+             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+             "download  : false
+         }
+
+request = requests.post('http://example.com/google/images', json=payload)
+
+# This line is optional, request.text() will return the result as a JSON formatted string
+result = json.loads(request.text())
+```
+
+```go
+payload := strings.NewReader(`{
+             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+             "download  : false
+         }`)
+
+request, err := http.NewRequest("POST", "http://example.com/google/images", payload)
+if err != nil {
+  // Error handling...
+}
+request.Header.Set("Content-Type", "application/json")
+
+client := &http.Client{}
+response, err := client.Do(request)
+if err != nil {
+  // Error handling...
+}
+  
+var result string
+err := json.NewDecoder(resp.Body).Decode(&response)
+if err != nil {
+  // Error handling...
+}
+// result now contains the response body as a JSON formatted string
+```
+
+```javascript
+const fetch = require("node-fetch");
+
+const payload = {
+              "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+              "download  : false
+            };
+
+fetch('http://localhost:54453/google/images', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+})
+.then((response) => response.json())
+.then((result) => {
+  console.log('Result:', result);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+```
+
+> The above command returns a JSON object structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
 This endpoint performs a Google search-by-image and returns the results in json format.
 
 ### HTTP Endpoint
@@ -185,6 +283,120 @@ Note — any parameters included in the request that are not specified in the ta
 </aside>
 
 ## Reviews
+
+> An example of a search-by-text request is given below:
+
+```shell
+# Ensure that the data being supplied is in a valid json format
+curl 'http://example.com/google/reviews' \
+     -H 'Content-Type: application/json' \
+     -d '{
+             "fid"     : "{Feature ID}",
+             "filter"  : "Nice food",
+             "sort"    : "ratingHigh",
+
+             "language": "en",
+             "start"   : 5
+         }'
+```
+
+```python
+import requests
+import json
+
+payload = {
+            "fid"     : "{Feature ID}",
+            "filter"  : "Nice food",
+            "sort"    : "ratingHigh",
+
+            "language": "en",
+            "start"   : 5
+         }
+
+request = requests.post('http://example.com/google/reviews', json=payload)
+
+# This line is optional, request.text() will return the result as a JSON formatted string
+result = json.loads(request.text())
+```
+
+```go
+payload := strings.NewReader(`{
+            "fid"     : "{Feature ID}",
+            "filter"  : "Nice food",
+            "sort"    : "ratingHigh",
+
+            "language": "en",
+            "start"   : 5
+         }`)
+
+request, err := http.NewRequest("POST", "http://example.com/google/reviews", payload)
+if err != nil {
+  // Error handling...
+}
+request.Header.Set("Content-Type", "application/json")
+
+client := &http.Client{}
+response, err := client.Do(request)
+if err != nil {
+  // Error handling...
+}
+  
+var result string
+err := json.NewDecoder(resp.Body).Decode(&response)
+if err != nil {
+  // Error handling...
+}
+// result now contains the response body as a JSON formatted string
+```
+
+```javascript
+const fetch = require("node-fetch");
+
+const payload = {
+             "fid"     : "{Feature ID}",
+             "filter"  : "Nice food",
+             "sort"    : "ratingHigh",
+
+             "language": "en",
+             "start"   : 5
+            };
+
+fetch('http://localhost:54453/google/reviews', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+})
+.then((response) => response.json())
+.then((result) => {
+  console.log('Result:', result);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+```
+
+> The above command returns a JSON object structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
 
 This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
@@ -212,6 +424,136 @@ Note — any parameters included in the request that are not specified in the ta
 </aside>
 
 ## Trends
+
+> An example of a search-by-text request is given below:
+
+```shell
+# Ensure that the data being supplied is in a valid json format
+curl 'http://example.com/google/trends' \
+     -H 'Content-Type: application/json' \
+     -d '{
+             "keywords": "seo bot api",
+             "category": false,
+             "type"    : "google",
+
+             "langauge": "en",
+             "country" : "za",
+
+             "date"    : "now 7-d"
+             "start"   : "2021-01-01",
+             "stop"    : "2021-07-01"
+         }'
+```
+
+```python
+import requests
+import json
+
+payload = {
+             "keywords": "seo bot api",
+             "category": false,
+             "type"    : "google",
+
+             "langauge": "en",
+             "country" : "za",
+
+             "date"    : "now 7-d"
+             "start"   : "2021-01-01",
+             "stop"    : "2021-07-01"
+         }
+
+request = requests.post('http://example.com/google/trends', json=payload)
+
+# This line is optional, request.text() will return the result as a JSON formatted string
+result = json.loads(request.text())
+```
+
+```go
+payload := strings.NewReader(`{
+             "keywords": "seo bot api",
+             "category": false,
+             "type"    : "google",
+
+             "langauge": "en",
+             "country" : "za",
+
+             "date"    : "now 7-d"
+             "start"   : "2021-01-01",
+             "stop"    : "2021-07-01"
+         }`)
+
+request, err := http.NewRequest("POST", "http://example.com/google/trends", payload)
+if err != nil {
+  // Error handling...
+}
+request.Header.Set("Content-Type", "application/json")
+
+client := &http.Client{}
+response, err := client.Do(request)
+if err != nil {
+  // Error handling...
+}
+  
+var result string
+err := json.NewDecoder(resp.Body).Decode(&response)
+if err != nil {
+  // Error handling...
+}
+// result now contains the response body as a JSON formatted string
+```
+
+```javascript
+const fetch = require("node-fetch");
+
+const payload = {
+             "keywords": "seo bot api",
+             "category": false,
+             "type"    : "google",
+
+             "langauge": "en",
+             "country" : "za",
+
+             "date"    : "now 7-d"
+             "start"   : "2021-01-01",
+             "stop"    : "2021-07-01"
+            };
+
+fetch('http://localhost:54453/google/trends', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
+})
+.then((response) => response.json())
+.then((result) => {
+  console.log('Result:', result);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+```
+
+> The above command returns a JSON object structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
 
 This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
