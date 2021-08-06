@@ -128,6 +128,7 @@ fetch('http://example.com/google/search', {
   console.error('Error:', error);
 });
 ```
+> Query results will be returned as a JSON formatted object within the response body
 
 This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
@@ -252,6 +253,7 @@ fetch('http://example.com/google/images', {
   console.error('Error:', error);
 });
 ```
+> Query results will be returned as a JSON formatted object within the response body
 
 This endpoint performs a Google search-by-image and returns the results in json format.
 
@@ -379,6 +381,7 @@ fetch('http://example.com/google/reviews', {
   console.error('Error:', error);
 });
 ```
+> Query results will be returned as a JSON formatted object within the response body
 
 This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
@@ -533,6 +536,7 @@ fetch('http://localhost:54453/google/trends', {
   console.error('Error:', error);
 });
 ```
+> Query results will be returned as a JSON formatted object within the response body
 
 This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
