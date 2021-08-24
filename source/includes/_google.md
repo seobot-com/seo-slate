@@ -22,17 +22,17 @@
 ```shell
 curl 'http://example.com/google/search' \
      -H 'Content-Type: application/json' \
+     -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
-             "keywords": "seo bot api",
-             "mobile"  : false,
-             "type"    : "shop",
+            "keywords": "seo bot api",
+            "mobile"  : false,
+            "type"    : "shop",
 
-             "language": "en",
-             "country" : "za",
-             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
+            "language": "en",
+            "country" : "za",
 
-             "start"   : 5,
-             "num"     : 3
+            "start"   : 5,
+            "num"     : 3
          }'
 ```
 
@@ -40,6 +40,7 @@ curl 'http://example.com/google/search' \
 import requests
 import json
 
+api_token = 'a5dc16c9d6fd89b30913d2bc988ad096'
 payload = {
              "keywords": "seo bot api",
              "mobile"  : False,
@@ -47,14 +48,15 @@ payload = {
 
              "language": "en",
              "country" : "za",
-             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
 
              "start"   : 5,
              "num"     : 3
-          }
+         }
 
-request = requests.post('http://example.com/google/search', json=payload)
-result = json.loads(request.text())
+request = requests.post('http://example.com/google/search',
+                        headers={'Authorization': api_token},
+                        json=payload)
+result = json.loads(request.text)
 ```
 
 ```go
@@ -71,16 +73,18 @@ payload := strings.NewReader(`{
 
              "language": "en",
              "country" : "za",
-             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
 
              "start"   : 5,
              "num"     : 3
          }`)
 
-request, err := http.NewRequest("POST", "http://example.com/google/search", payload)
+request, err := http.NewRequest("POST",
+    "http://example.com/google/search",
+    payload)
 if err != nil {
   // Error handling...
 }
+request.Header.Set("Authorization", "a5dc16c9d6fd89b30913d2bc988ad096")
 request.Header.Set("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -89,12 +93,11 @@ if err != nil {
   // Error handling...
 }
   
-var result string
-err := json.NewDecoder(resp.Body).Decode(&response)
+result map[string]interface{}{}
+err := json.NewDecoder(response.Body).Decode(&result)
 if err != nil {
   // Error handling...
 }
-// result now contains the response body as a JSON formatted string
 ```
 
 ```javascript
@@ -103,11 +106,10 @@ const fetch = require("node-fetch");
 const payload = {
                 "keywords": "seo bot api",
                 "mobile"  : false,
-                "type"    : "isch",
+                "type"    : "shop",
 
                 "language": "en",
                 "country" : "za",
-                "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
 
                 "start"   : 5,
                 "num"     : 3
@@ -117,18 +119,26 @@ fetch('http://example.com/google/search', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': 'a5dc16c9d6fd89b30913d2bc988ad096'
   },
   body: JSON.stringify(payload),
 })
 .then((response) => response.json())
 .then((result) => {
-  console.log('Result:', result);
+  console.log('Response:', result);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 ```
-> Query results will be returned as a JSON formatted object within the response body
+> Query results will be returned as a JSON formatted object with the following structure:
+
+```json
+{
+  "error": "error message",
+  "result": "{query results}"
+}
+```
 
 This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
@@ -179,9 +189,10 @@ Note — any parameters included in the request that are not specified in the ta
 ```shell
 curl 'http://example.com/google/images' \
      -H 'Content-Type: application/json' \
+     -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
-             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
-             "download" : false
+            "image_url": "https://images.example.com/image.jgp",
+            "download" : false
          }'
 ```
 
@@ -189,13 +200,16 @@ curl 'http://example.com/google/images' \
 import requests
 import json
 
+api_token = 'a5dc16c9d6fd89b30913d2bc988ad096'
 payload = {
-             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+             "image_url": "https://images.example.com/image.jgp",
              "download" : False
          }
 
-request = requests.post('http://example.com/google/images', json=payload)
-result = json.loads(request.text())
+request = requests.post('http://example.com/google/images',
+                        headers={'Authorization': api_token},
+                        json=payload)
+result = json.loads(request.text)
 ```
 
 ```go
@@ -206,14 +220,17 @@ import (
 )
 
 payload := strings.NewReader(`{
-             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+             "image_url": "https://images.example.com/image.jgp",
              "download" : false
          }`)
 
-request, err := http.NewRequest("POST", "http://example.com/google/images", payload)
+request, err := http.NewRequest("POST",
+    "http://example.com/google/images",
+    payload)
 if err != nil {
   // Error handling...
 }
+request.Header.Set("Authorization", "a5dc16c9d6fd89b30913d2bc988ad096")
 request.Header.Set("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -222,19 +239,18 @@ if err != nil {
   // Error handling...
 }
   
-var result string
-err := json.NewDecoder(resp.Body).Decode(&response)
+result map[string]interface{}{}
+err := json.NewDecoder(response.Body).Decode(&result)
 if err != nil {
   // Error handling...
 }
-// result now contains the response body as a JSON formatted string
 ```
 
 ```javascript
 const fetch = require("node-fetch");
 
 const payload = {
-              "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+              "image_url": "http://example.com/google/images",
               "download" : false
             };
 
@@ -242,18 +258,26 @@ fetch('http://example.com/google/images', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': 'a5dc16c9d6fd89b30913d2bc988ad096'
   },
   body: JSON.stringify(payload),
 })
 .then((response) => response.json())
 .then((result) => {
-  console.log('Result:', result);
+  console.log('Response:', result);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 ```
-> Query results will be returned as a JSON formatted object within the response body
+> Query results will be returned as a JSON formatted object with the following structure:
+
+```json
+{
+  "error": "error message",
+  "result": "{query results}"
+}
+```
 
 This endpoint performs a Google search-by-image and returns the results in json format.
 
@@ -291,13 +315,14 @@ Note — any parameters included in the request that are not specified in the ta
 ```shell
 curl 'http://example.com/google/reviews' \
      -H 'Content-Type: application/json' \
+     -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
-             "fid"     : "{Feature ID}",
-             "filter"  : "Nice food",
-             "sort"    : "ratingHigh",
+            "fid"     : "{Feature ID}",
+            "filter"  : "Nice food",
+            "sort"    : "ratingHigh",
 
-             "language": "en",
-             "start"   : 5
+            "language": "en",
+            "start"   : 5
          }'
 ```
 
@@ -305,6 +330,7 @@ curl 'http://example.com/google/reviews' \
 import requests
 import json
 
+api_token = 'a5dc16c9d6fd89b30913d2bc988ad096'
 payload = {
             "fid"     : "{Feature ID}",
             "filter"  : "Nice food",
@@ -314,8 +340,10 @@ payload = {
             "start"   : 5
          }
 
-request = requests.post('http://example.com/google/reviews', json=payload)
-result = json.loads(request.text())
+request = requests.post('http://example.com/google/reviews',
+                        headers={'Authorization': api_token},
+                        json=payload)
+result = json.loads(request.text)
 ```
 
 ```go
@@ -334,10 +362,13 @@ payload := strings.NewReader(`{
             "start"   : 5
          }`)
 
-request, err := http.NewRequest("POST", "http://example.com/google/reviews", payload)
+request, err := http.NewRequest("POST",
+    "http://example.com/google/reviews",
+    payload)
 if err != nil {
   // Error handling...
 }
+request.Header.Set("Authorization", "a5dc16c9d6fd89b30913d2bc988ad096")
 request.Header.Set("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -346,12 +377,11 @@ if err != nil {
   // Error handling...
 }
   
-var result string
-err := json.NewDecoder(resp.Body).Decode(&response)
+result map[string]interface{}{}
+err := json.NewDecoder(response.Body).Decode(&result)
 if err != nil {
   // Error handling...
 }
-// result now contains the response body as a JSON formatted string
 ```
 
 ```javascript
@@ -370,18 +400,26 @@ fetch('http://example.com/google/reviews', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': 'a5dc16c9d6fd89b30913d2bc988ad096'
   },
   body: JSON.stringify(payload),
 })
 .then((response) => response.json())
 .then((result) => {
-  console.log('Result:', result);
+  console.log('Response:', result);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 ```
-> Query results will be returned as a JSON formatted object within the response body
+> Query results will be returned as a JSON formatted object with the following structure:
+
+```json
+{
+  "error": "error message",
+  "result": "{query results}"
+}
+```
 
 This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
@@ -430,17 +468,18 @@ Note — any parameters included in the request that are not specified in the ta
 ```shell
 curl 'http://example.com/google/trends' \
      -H 'Content-Type: application/json' \
+     -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
-             "keywords": "seo bot api",
-             "category": 0,
-             "type"    : "google",
+            "keywords": "seo bot api",
+            "category": 0,
+            "type"    : "google",
 
-             "language": "en",
-             "country" : "za",
+            "language": "en",
+            "country" : "za",
 
-             "date"    : "now 7-d",
-             "start"   : "2021-01-01",
-             "stop"    : "2021-07-01"
+            "date"    : "now 7-d",
+            "start"   : "2021-01-01",
+            "stop"    : "2021-07-01"
          }'
 ```
 
@@ -448,6 +487,7 @@ curl 'http://example.com/google/trends' \
 import requests
 import json
 
+api_token = 'a5dc16c9d6fd89b30913d2bc988ad096'
 payload = {
              "keywords": "seo bot api",
              "category": 0,
@@ -461,8 +501,10 @@ payload = {
              "stop"    : "2021-07-01"
          }
 
-request = requests.post('http://example.com/google/trends', json=payload)
-result = json.loads(request.text())
+request = requests.post('http://example.com/google/trends',
+                        headers={'Authorization': api_token},
+                        json=payload)
+result = json.loads(request.text)
 ```
 
 ```go
@@ -485,10 +527,13 @@ payload := strings.NewReader(`{
              "stop"    : "2021-07-01"
          }`)
 
-request, err := http.NewRequest("POST", "http://example.com/google/trends", payload)
+request, err := http.NewRequest("POST",
+    "http://example.com/google/trends",
+    payload)
 if err != nil {
   // Error handling...
 }
+request.Header.Set("Authorization", "a5dc16c9d6fd89b30913d2bc988ad096")
 request.Header.Set("Content-Type", "application/json")
 
 client := &http.Client{}
@@ -497,12 +542,11 @@ if err != nil {
   // Error handling...
 }
   
-var result string
-err := json.NewDecoder(resp.Body).Decode(&response)
+result map[string]interface{}{}
+err := json.NewDecoder(response.Body).Decode(&result)
 if err != nil {
   // Error handling...
 }
-// result now contains the response body as a JSON formatted string
 ```
 
 ```javascript
@@ -525,18 +569,26 @@ fetch('http://localhost:54453/google/trends', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
+    'Authorization': 'a5dc16c9d6fd89b30913d2bc988ad096'
   },
   body: JSON.stringify(payload),
 })
 .then((response) => response.json())
 .then((result) => {
-  console.log('Result:', result);
+  console.log('Response:', result);
 })
 .catch((error) => {
   console.error('Error:', error);
 });
 ```
-> Query results will be returned as a JSON formatted object within the response body
+> Query results will be returned as a JSON formatted object with the following structure:
+
+```json
+{
+  "error": "error message",
+  "result": "{query results}"
+}
+```
 
 This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request's parameters.
 
