@@ -353,7 +353,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Some intro stuff</p>
+<p>Hodl or hell</p>
 <h1 id='google'>Google</h1><h2 id='search-by-text'>Search by Text</h2>
 <blockquote>
 <p>The request body must be sent in JSON format with the following structure:</p>
@@ -374,21 +374,22 @@
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://example.com/google/search'</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s1">'Authorization: a5dc16c9d6fd89b30913d2bc988ad096'</span> <span class="se">\</span>
      <span class="nt">-d</span> <span class="s1">'{
-             "keywords": "seo bot api",
-             "mobile"  : false,
-             "type"    : "shop",
+            "keywords": "seo bot api",
+            "mobile"  : false,
+            "type"    : "shop",
 
-             "language": "en",
-             "country" : "za",
-             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
+            "language": "en",
+            "country" : "za",
 
-             "start"   : 5,
-             "num"     : 3
+            "start"   : 5,
+            "num"     : 3
          }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'a5dc16c9d6fd89b30913d2bc988ad096'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
              <span class="s">"keywords"</span><span class="p">:</span> <span class="s">"seo bot api"</span><span class="p">,</span>
              <span class="s">"mobile"</span>  <span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
@@ -396,14 +397,15 @@
 
              <span class="s">"language"</span><span class="p">:</span> <span class="s">"en"</span><span class="p">,</span>
              <span class="s">"country"</span> <span class="p">:</span> <span class="s">"za"</span><span class="p">,</span>
-             <span class="s">"uule"</span>    <span class="p">:</span> <span class="s">"w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ"</span><span class="p">,</span>
 
              <span class="s">"start"</span>   <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
              <span class="s">"num"</span>     <span class="p">:</span> <span class="mi">3</span>
-          <span class="p">}</span>
+         <span class="p">}</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/search'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">())</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/search'</span><span class="p">,</span>
+                        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="n">api_token</span><span class="p">},</span>
+                        <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="p">(</span>
     <span class="s">"encoding/json"</span>
     <span class="s">"net/http"</span>
@@ -417,16 +419,18 @@
 
              "language": "en",
              "country" : "za",
-             "uule"    : "w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ",
 
              "start"   : 5,
              "num"     : 3
          }`</span><span class="p">)</span>
 
-<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"http://example.com/google/search"</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span>
+    <span class="s">"http://example.com/google/search"</span><span class="p">,</span>
+    <span class="n">payload</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
+<span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"a5dc16c9d6fd89b30913d2bc988ad096"</span><span class="p">)</span>
 <span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
 
 <span class="n">client</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
@@ -435,22 +439,20 @@
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
 
-<span class="k">var</span> <span class="n">result</span> <span class="kt">string</span>
-<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">response</span><span class="p">)</span>
+<span class="n">result</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{}</span>
+<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
-<span class="c">// result now contains the response body as a JSON formatted string</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">node-fetch</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="dl">"</span><span class="s2">keywords</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">seo bot api</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">mobile</span><span class="dl">"</span>  <span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span>    <span class="p">:</span> <span class="dl">"</span><span class="s2">isch</span><span class="dl">"</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">type</span><span class="dl">"</span>    <span class="p">:</span> <span class="dl">"</span><span class="s2">shop</span><span class="dl">"</span><span class="p">,</span>
 
                 <span class="dl">"</span><span class="s2">language</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">en</span><span class="dl">"</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">country</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">za</span><span class="dl">"</span><span class="p">,</span>
-                <span class="dl">"</span><span class="s2">uule</span><span class="dl">"</span>    <span class="p">:</span> <span class="dl">"</span><span class="s2">w+CAIQICIfUHJldG9yaWEsIEdhdXRlbmcsIFNvdXRoIEFmcmljYQ</span><span class="dl">"</span><span class="p">,</span>
 
                 <span class="dl">"</span><span class="s2">start</span><span class="dl">"</span>   <span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
                 <span class="dl">"</span><span class="s2">num</span><span class="dl">"</span>     <span class="p">:</span> <span class="mi">3</span>
@@ -460,21 +462,26 @@
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a5dc16c9d6fd89b30913d2bc988ad096</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Result:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Response:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <blockquote>
-<p>Query results will be returned as a JSON formatted object within the response body</p>
+<p>Query results will be returned as a JSON formatted object with the following structure:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
 <h3 id='http-endpoint'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/search</code></p>
@@ -574,20 +581,24 @@ Note — any parameters included in the request that are not specified in the ta
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://example.com/google/images'</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s1">'Authorization: a5dc16c9d6fd89b30913d2bc988ad096'</span> <span class="se">\</span>
      <span class="nt">-d</span> <span class="s1">'{
-             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
-             "download" : false
+            "image_url": "https://images.example.com/image.jgp",
+            "download" : false
          }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'a5dc16c9d6fd89b30913d2bc988ad096'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-             <span class="s">"image_url"</span><span class="p">:</span> <span class="s">"https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png"</span><span class="p">,</span>
+             <span class="s">"image_url"</span><span class="p">:</span> <span class="s">"https://images.example.com/image.jgp"</span><span class="p">,</span>
              <span class="s">"download"</span> <span class="p">:</span> <span class="bp">False</span>
          <span class="p">}</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/images'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">())</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/images'</span><span class="p">,</span>
+                        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="n">api_token</span><span class="p">},</span>
+                        <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="p">(</span>
     <span class="s">"encoding/json"</span>
     <span class="s">"net/http"</span>
@@ -595,14 +606,17 @@ Note — any parameters included in the request that are not specified in the ta
 <span class="p">)</span>
 
 <span class="n">payload</span> <span class="o">:=</span> <span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">`{
-             "image_url": "https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png",
+             "image_url": "https://images.example.com/image.jgp",
              "download" : false
          }`</span><span class="p">)</span>
 
-<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"http://example.com/google/images"</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span>
+    <span class="s">"http://example.com/google/images"</span><span class="p">,</span>
+    <span class="n">payload</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
+<span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"a5dc16c9d6fd89b30913d2bc988ad096"</span><span class="p">)</span>
 <span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
 
 <span class="n">client</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
@@ -611,16 +625,15 @@ Note — any parameters included in the request that are not specified in the ta
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
 
-<span class="k">var</span> <span class="n">result</span> <span class="kt">string</span>
-<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">response</span><span class="p">)</span>
+<span class="n">result</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{}</span>
+<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
-<span class="c">// result now contains the response body as a JSON formatted string</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">node-fetch</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
-              <span class="dl">"</span><span class="s2">image_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://images.news18.com/ibnlive/uploads/2020/12/1608629135_untitled-design-3.png</span><span class="dl">"</span><span class="p">,</span>
+              <span class="dl">"</span><span class="s2">image_url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">http://example.com/google/images</span><span class="dl">"</span><span class="p">,</span>
               <span class="dl">"</span><span class="s2">download</span><span class="dl">"</span> <span class="p">:</span> <span class="kc">false</span>
             <span class="p">};</span>
 
@@ -628,21 +641,26 @@ Note — any parameters included in the request that are not specified in the ta
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a5dc16c9d6fd89b30913d2bc988ad096</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Result:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Response:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <blockquote>
-<p>Query results will be returned as a JSON formatted object within the response body</p>
+<p>Query results will be returned as a JSON formatted object with the following structure:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint performs a Google search-by-image and returns the results in json format.</p>
 <h3 id='http-endpoint-2'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/images</code></p>
@@ -689,17 +707,19 @@ Note — any parameters included in the request that are not specified in the ta
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://example.com/google/reviews'</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s1">'Authorization: a5dc16c9d6fd89b30913d2bc988ad096'</span> <span class="se">\</span>
      <span class="nt">-d</span> <span class="s1">'{
-             "fid"     : "{Feature ID}",
-             "filter"  : "Nice food",
-             "sort"    : "ratingHigh",
+            "fid"     : "{Feature ID}",
+            "filter"  : "Nice food",
+            "sort"    : "ratingHigh",
 
-             "language": "en",
-             "start"   : 5
+            "language": "en",
+            "start"   : 5
          }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'a5dc16c9d6fd89b30913d2bc988ad096'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s">"fid"</span>     <span class="p">:</span> <span class="s">"{Feature ID}"</span><span class="p">,</span>
             <span class="s">"filter"</span>  <span class="p">:</span> <span class="s">"Nice food"</span><span class="p">,</span>
@@ -709,8 +729,10 @@ Note — any parameters included in the request that are not specified in the ta
             <span class="s">"start"</span>   <span class="p">:</span> <span class="mi">5</span>
          <span class="p">}</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/reviews'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">())</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/reviews'</span><span class="p">,</span>
+                        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="n">api_token</span><span class="p">},</span>
+                        <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="p">(</span>
     <span class="s">"encoding/json"</span>
     <span class="s">"net/http"</span>
@@ -726,10 +748,13 @@ Note — any parameters included in the request that are not specified in the ta
             "start"   : 5
          }`</span><span class="p">)</span>
 
-<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"http://example.com/google/reviews"</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span>
+    <span class="s">"http://example.com/google/reviews"</span><span class="p">,</span>
+    <span class="n">payload</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
+<span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"a5dc16c9d6fd89b30913d2bc988ad096"</span><span class="p">)</span>
 <span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
 
 <span class="n">client</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
@@ -738,12 +763,11 @@ Note — any parameters included in the request that are not specified in the ta
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
 
-<span class="k">var</span> <span class="n">result</span> <span class="kt">string</span>
-<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">response</span><span class="p">)</span>
+<span class="n">result</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{}</span>
+<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
-<span class="c">// result now contains the response body as a JSON formatted string</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">node-fetch</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
@@ -759,21 +783,26 @@ Note — any parameters included in the request that are not specified in the ta
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a5dc16c9d6fd89b30913d2bc988ad096</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Result:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Response:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <blockquote>
-<p>Query results will be returned as a JSON formatted object within the response body</p>
+<p>Query results will be returned as a JSON formatted object with the following structure:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
 <h3 id='http-endpoint-3'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/reviews</code></p>
@@ -851,21 +880,23 @@ Note — any parameters included in the request that are not specified in the ta
 </blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://example.com/google/trends'</span> <span class="se">\</span>
      <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s1">'Authorization: a5dc16c9d6fd89b30913d2bc988ad096'</span> <span class="se">\</span>
      <span class="nt">-d</span> <span class="s1">'{
-             "keywords": "seo bot api",
-             "category": 0,
-             "type"    : "google",
+            "keywords": "seo bot api",
+            "category": 0,
+            "type"    : "google",
 
-             "language": "en",
-             "country" : "za",
+            "language": "en",
+            "country" : "za",
 
-             "date"    : "now 7-d",
-             "start"   : "2021-01-01",
-             "stop"    : "2021-07-01"
+            "date"    : "now 7-d",
+            "start"   : "2021-01-01",
+            "stop"    : "2021-07-01"
          }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'a5dc16c9d6fd89b30913d2bc988ad096'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
              <span class="s">"keywords"</span><span class="p">:</span> <span class="s">"seo bot api"</span><span class="p">,</span>
              <span class="s">"category"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -879,8 +910,10 @@ Note — any parameters included in the request that are not specified in the ta
              <span class="s">"stop"</span>    <span class="p">:</span> <span class="s">"2021-07-01"</span>
          <span class="p">}</span>
 
-<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/trends'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">())</span>
+<span class="n">request</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s">'http://example.com/google/trends'</span><span class="p">,</span>
+                        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="n">api_token</span><span class="p">},</span>
+                        <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div><div class="highlight"><pre class="highlight go tab-go"><code><span class="k">import</span> <span class="p">(</span>
     <span class="s">"encoding/json"</span>
     <span class="s">"net/http"</span>
@@ -900,10 +933,13 @@ Note — any parameters included in the request that are not specified in the ta
              "stop"    : "2021-07-01"
          }`</span><span class="p">)</span>
 
-<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="s">"http://example.com/google/trends"</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">request</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span>
+    <span class="s">"http://example.com/google/trends"</span><span class="p">,</span>
+    <span class="n">payload</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
+<span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Authorization"</span><span class="p">,</span> <span class="s">"a5dc16c9d6fd89b30913d2bc988ad096"</span><span class="p">)</span>
 <span class="n">request</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">)</span>
 
 <span class="n">client</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="p">{}</span>
@@ -912,12 +948,11 @@ Note — any parameters included in the request that are not specified in the ta
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
 
-<span class="k">var</span> <span class="n">result</span> <span class="kt">string</span>
-<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">response</span><span class="p">)</span>
+<span class="n">result</span> <span class="k">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="k">interface</span><span class="p">{}{}</span>
+<span class="n">err</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">NewDecoder</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="o">.</span><span class="n">Decode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">result</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
   <span class="c">// Error handling...</span>
 <span class="p">}</span>
-<span class="c">// result now contains the response body as a JSON formatted string</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">fetch</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">node-fetch</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="kd">const</span> <span class="nx">payload</span> <span class="o">=</span> <span class="p">{</span>
@@ -937,21 +972,26 @@ Note — any parameters included in the request that are not specified in the ta
   <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">a5dc16c9d6fd89b30913d2bc988ad096</span><span class="dl">'</span>
   <span class="p">},</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">payload</span><span class="p">),</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Result:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Response:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
 <span class="p">})</span>
 <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 <blockquote>
-<p>Query results will be returned as a JSON formatted object within the response body</p>
+<p>Query results will be returned as a JSON formatted object with the following structure:</p>
 </blockquote>
-
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p>This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
 <h3 id='http-endpoint-4'>HTTP Endpoint</h3>
 <p><code>GET http://example.com/google/trends</code></p>
