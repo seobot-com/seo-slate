@@ -496,7 +496,7 @@ payload = {
              "language": "en",
              "country" : "za",
 
-             "date"    : "now 7-d"
+             "date"    : "now 7-d",
              "start"   : "2021-01-01",
              "stop"    : "2021-07-01"
          }
@@ -522,7 +522,7 @@ payload := strings.NewReader(`{
              "language": "en",
              "country" : "za",
 
-             "date"    : "now 7-d"
+             "date"    : "now 7-d",
              "start"   : "2021-01-01",
              "stop"    : "2021-07-01"
          }`)
@@ -560,7 +560,7 @@ const payload = {
              "language": "en",
              "country" : "za",
 
-             "date"    : "now 7-d"
+             "date"    : "now 7-d",
              "start"   : "2021-01-01",
              "stop"    : "2021-07-01"
             };
