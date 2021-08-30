@@ -315,6 +315,9 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
             <a href="#google" class="toc-h1 toc-link" data-title="Google">Google</a>
               <ul class="toc-list-h2">
                   <li>
@@ -341,7 +344,7 @@
             <a href="#duckduckgo" class="toc-h1 toc-link" data-title="DuckDuckGo">DuckDuckGo</a>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#codes" class="toc-h1 toc-link" data-title="Codes">Codes</a>
           </li>
       </ul>
         <ul class="toc-footer">
@@ -353,7 +356,36 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Hodl or hell</p>
+<blockquote>
+<p><u>All examples are laid out as follows:</u></p>
+
+<ol>
+<li><p>Request body parameters</p></li>
+<li><p>Request code example </p></li>
+<li><p>Response body parameters</p></li>
+</ol>
+</blockquote>
+
+<p>Welcome to the SEOBot API! This API allows access to our web scraping service, which is used to query and collect information and metadata about search results returned using supported web browsers. </p>
+
+<p>You can find usage examples in the dark area to the right, and you can change the programming language of the examples with the tabs in the top right. Examples have been given in Shell, Python, Golang and JavaScript!</p>
+
+<p>If you would like any changes or additions to be made to our documentation, functionality or examples, please send your suggestions to <a href="mailto:support@seabot.com">support@seobot.com</a>.</p>
+<h1 id='authentication'>Authentication</h1>
+<blockquote>
+<p>SEOBot expects an access token to be included in the header of each request made to the API. This header field is defined as follows:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight plaintext"><code>Authorization: access-token
+</code></pre></div>
+<p>SEOBot uses access tokens to authenticate requests made to the API. Each access token is linked to a single account and is only valid for one unique endpoint i.e. google, bing, yandex or duckduckgo.</p>
+
+<p>Each account may have multiple access tokens across multiple endpoints, and the number of requests that may be made using these tokens will be based on the account&#39;s limits.</p>
+
+<p>To apply for an account or manage your access tokens, please visit <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">www.example.com</a>.</p>
+
+<aside class="warning">
+Be careful when using or distributing your access tokens. Requests made using these tokens will be billed against the associated account.
+</aside>
 <h1 id='google'>Google</h1><h2 id='search-by-text'>Search by Text</h2>
 <blockquote>
 <p>The request body must be sent in JSON format with the following structure:</p>
@@ -479,7 +511,8 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requests_remaining"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{# of requests remaining}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint performs a regular Google search-by-text and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
@@ -658,7 +691,8 @@ Note — any parameters included in the request that are not specified in the ta
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requests_remaining"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{# of requests remaining}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint performs a Google search-by-image and returns the results in json format.</p>
@@ -800,7 +834,8 @@ Note — any parameters included in the request that are not specified in the ta
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requests_remaining"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{# of requests remaining}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint performs a Google search of all reviews for a specific feature and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
@@ -989,7 +1024,8 @@ Note — any parameters included in the request that are not specified in the ta
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error message"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="w">
+  </span><span class="nl">"result"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{query results}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requests_remaining"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{# of requests remaining}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint performs a Google trends search and returns the results in json format. The type and number of results returned depends on the request&#39;s parameters.</p>
@@ -1089,58 +1125,74 @@ This feature is currently under development and will be made available soon...
 <aside class="success">
 This feature is currently under development and will be made available soon...
 </aside>
-<h1 id='errors'>Errors</h1>
+<h1 id='codes'>Codes</h1>
 <aside class="notice">
-This error section details all possible error codes that may be returned by the API.
+This section details all possible response codes that may be returned by the API.
 </aside>
 
-<p>Error codes and meanings:</p>
+<p>Response codes and meanings:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Code</th>
 <th>Meaning</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>200</td>
+<td>OK</td>
+<td>The request was accepted and processed successfully.</td>
+</tr>
+<tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Bad Request</td>
+<td>Your request is invalid.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized</td>
+<td>Your API access token is wrong.</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required</td>
+<td>You have reached the monthly request limit.</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The requested resource is hidden or available to administrators only.</td>
+<td>Forbidden</td>
+<td>The requested resource is hidden or available to administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified resource could not be found.</td>
+<td>Not Found</td>
+<td>The specified resource could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a resource with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>Method Not Allowed</td>
+<td>You tried to access a resource with an invalid method.</td>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The requested resource has been removed from our servers.</td>
+<td>Gone</td>
+<td>The requested resource has been removed from our servers.</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You are making an unreasonable number of requests!</td>
+<td>Too Many Requests</td>
+<td>You are making an unreasonable number of requests!</td>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>Internal Server Error</td>
+<td>We had a problem with our server. Try again later.</td>
 </tr>
 <tr>
 <td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Service Unavailable</td>
+<td>We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 

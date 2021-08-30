@@ -136,7 +136,8 @@ fetch('http://example.com/google/search', {
 ```json
 {
   "error": "error message",
-  "result": "{query results}"
+  "result": "{query results}",
+  "requests_remaining": "{# of requests remaining}"
 }
 ```
 
@@ -275,7 +276,8 @@ fetch('http://example.com/google/images', {
 ```json
 {
   "error": "error message",
-  "result": "{query results}"
+  "result": "{query results}",
+  "requests_remaining": "{# of requests remaining}"
 }
 ```
 
@@ -417,7 +419,8 @@ fetch('http://example.com/google/reviews', {
 ```json
 {
   "error": "error message",
-  "result": "{query results}"
+  "result": "{query results}",
+  "requests_remaining": "{# of requests remaining}"
 }
 ```
 
@@ -586,7 +589,8 @@ fetch('http://localhost:54453/google/trends', {
 ```json
 {
   "error": "error message",
-  "result": "{query results}"
+  "result": "{query results}",
+  "requests_remaining": "{# of requests remaining}"
 }
 ```
 
