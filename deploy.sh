@@ -8,7 +8,7 @@ git fetch --tags;
 git config --global advice.detachedHead false;
 if [ -z "$1" ]
 then
-    latesttag=$(git describe --tags)
+    latesttag=$(git describe --tags `git rev-list --tags --max-count=1`)
     echo checking out ${latesttag}
     git checkout ${latesttag}
     echo -e "-> Finished\n"
