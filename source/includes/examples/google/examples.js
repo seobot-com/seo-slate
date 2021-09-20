@@ -14,7 +14,7 @@ const payload = {
                 "num"     : 3
             };
 
-fetch('http://example.com/google/search', {
+fetch('https://api.seobot.com:11115/google/search', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -34,11 +34,11 @@ fetch('http://example.com/google/search', {
 const fetch = require("node-fetch");
 
 const payload = {
-              "image_url": "http://example.com/google/images",
+              "image_url": "https://api.seobot.com:11115/google/images",
               "download" : false
             };
 
-fetch('http://example.com/google/images', {
+fetch('https://api.seobot.com:11115/google/images', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const payload = {
              "start"   : 5
             };
 
-fetch('http://example.com/google/reviews', {
+fetch('https://api.seobot.com:11115/google/reviews', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

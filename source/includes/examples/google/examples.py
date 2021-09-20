@@ -15,7 +15,7 @@ payload = {
              "num"     : 3
          }
 
-request = requests.post('http://example.com/google/search',
+request = requests.post('https://api.seobot.com:11115/google/search',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -30,7 +30,7 @@ payload = {
              "download" : False
          }
 
-request = requests.post('http://example.com/google/images',
+request = requests.post('https://api.seobot.com:11115/google/images',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -49,7 +49,7 @@ payload = {
             "start"   : 5
          }
 
-request = requests.post('http://example.com/google/reviews',
+request = requests.post('https://api.seobot.com:11115/google/reviews',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -72,7 +72,7 @@ payload = {
              "stop"    : "2021-07-01"
          }
 
-request = requests.post('http://example.com/google/trends',
+request = requests.post('https://api.seobot.com:11115/google/trends',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)

@@ -20,7 +20,7 @@
 > Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
-curl 'http://example.com/google/search' \
+curl 'https://api.seobot.com:11115/google/search' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -53,7 +53,7 @@ payload = {
              "num"     : 3
          }
 
-request = requests.post('http://example.com/google/search',
+request = requests.post('https://api.seobot.com:11115/google/search',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -79,7 +79,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/search",
+    "https://api.seobot.com:11115/google/search",
     payload)
 if err != nil {
   // Error handling...
@@ -115,7 +115,7 @@ const payload = {
                 "num"     : 3
             };
 
-fetch('http://example.com/google/search', {
+fetch('https://api.seobot.com:11115/google/search', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ This endpoint performs a regular Google search-by-text and returns the results i
 
 ### HTTP Endpoint
 
-`GET http://example.com/google/search`
+`GET https://api.seobot.com:11115/google/search`
 
 ### Search Parameters
 
@@ -188,7 +188,7 @@ Note — any parameters included in the request that are not specified in the ta
 > Note that fields which are not required may be omitted from the request. An example of a search-by-image request is given below:
 
 ```shell
-curl 'http://example.com/google/images' \
+curl 'https://api.seobot.com:11115/google/images' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -207,7 +207,7 @@ payload = {
              "download" : False
          }
 
-request = requests.post('http://example.com/google/images',
+request = requests.post('https://api.seobot.com:11115/google/images',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -226,7 +226,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/images",
+    "https://api.seobot.com:11115/google/images",
     payload)
 if err != nil {
   // Error handling...
@@ -251,11 +251,11 @@ if err != nil {
 const fetch = require("node-fetch");
 
 const payload = {
-              "image_url": "http://example.com/google/images",
+              "image_url": "https://api.seobot.com:11115/google/images",
               "download" : false
             };
 
-fetch('http://example.com/google/images', {
+fetch('https://api.seobot.com:11115/google/images', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -285,7 +285,7 @@ This endpoint performs a Google search-by-image and returns the results in json 
 
 ### HTTP Endpoint
 
-`GET http://example.com/google/images`
+`GET https://api.seobot.com:11115/google/images`
 
 ### Search Parameters
 
@@ -315,7 +315,7 @@ Note — any parameters included in the request that are not specified in the ta
 > Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
-curl 'http://example.com/google/reviews' \
+curl 'https://api.seobot.com:11115/google/reviews' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -342,7 +342,7 @@ payload = {
             "start"   : 5
          }
 
-request = requests.post('http://example.com/google/reviews',
+request = requests.post('https://api.seobot.com:11115/google/reviews',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -365,7 +365,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/reviews",
+    "https://api.seobot.com:11115/google/reviews",
     payload)
 if err != nil {
   // Error handling...
@@ -398,7 +398,7 @@ const payload = {
              "start"   : 5
             };
 
-fetch('http://example.com/google/reviews', {
+fetch('https://api.seobot.com:11115/google/reviews', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -428,7 +428,7 @@ This endpoint performs a Google search of all reviews for a specific feature and
 
 ### HTTP Endpoint
 
-`GET http://example.com/google/reviews`
+`GET https://api.seobot.com:11115/google/reviews`
 
 ### Search Parameters
 
@@ -469,7 +469,7 @@ Note — any parameters included in the request that are not specified in the ta
 > Note that fields which are not required may be omitted from the request. An example of a search-by-text request is given below:
 
 ```shell
-curl 'http://example.com/google/trends' \
+curl 'https://api.seobot.com:11115/google/trends' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -504,7 +504,7 @@ payload = {
              "stop"    : "2021-07-01"
          }
 
-request = requests.post('http://example.com/google/trends',
+request = requests.post('https://api.seobot.com:11115/google/trends',
                         headers={'Authorization': api_token},
                         json=payload)
 result = json.loads(request.text)
@@ -531,7 +531,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/trends",
+    "https://api.seobot.com:11115/google/trends",
     payload)
 if err != nil {
   // Error handling...
@@ -598,7 +598,7 @@ This endpoint performs a Google trends search and returns the results in json fo
 
 ### HTTP Endpoint
 
-`GET http://example.com/google/trends`
+`GET https://api.seobot.com:11115/google/trends`
 
 ### Search Parameters
 

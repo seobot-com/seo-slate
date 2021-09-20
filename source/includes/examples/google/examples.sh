@@ -1,5 +1,5 @@
 # Regular search
-curl 'http://example.com/google/search' \
+curl 'https://api.seobot.com:11115/google/search' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -15,7 +15,7 @@ curl 'http://example.com/google/search' \
          }'
 
 # Image search
-curl 'http://example.com/google/images' \
+curl 'https://api.seobot.com:11115/google/images' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -24,7 +24,7 @@ curl 'http://example.com/google/images' \
          }'
 
 # Reviews search
-curl 'http://example.com/google/reviews' \
+curl 'https://api.seobot.com:11115/google/reviews' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{
@@ -37,7 +37,7 @@ curl 'http://example.com/google/reviews' \
          }'
 
 # Trends search
-curl 'http://example.com/google/trends' \
+curl 'https://api.seobot.com:11115/google/trends' \
      -H 'Content-Type: application/json' \
      -H 'Authorization: a5dc16c9d6fd89b30913d2bc988ad096' \
      -d '{

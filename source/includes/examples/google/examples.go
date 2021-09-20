@@ -21,7 +21,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/search",
+    "https://api.seobot.com:11115/google/search",
     payload)
 if err != nil {
   // Error handling...
@@ -54,7 +54,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/images",
+    "https://api.seobot.com:11115/google/images",
     payload)
 if err != nil {
   // Error handling...
@@ -91,7 +91,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/reviews",
+    "https://api.seobot.com:11115/google/reviews",
     payload)
 if err != nil {
   // Error handling...
@@ -132,7 +132,7 @@ payload := strings.NewReader(`{
          }`)
 
 request, err := http.NewRequest("POST",
-    "http://example.com/google/trends",
+    "https://api.seobot.com:11115/google/trends",
     payload)
 if err != nil {
   // Error handling...
