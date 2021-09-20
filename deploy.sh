@@ -25,9 +25,5 @@ sudo gem install bundler
 sudo bundle install
 echo -e "-> Finished\n"
 
-echo "-> Building..."
-bundle exec middleman server
-echo -e "-> Finished\n"
-
 echo "========================"
-echo "Deploy finished"
+echo "Deploy finished, restart when ready..."
