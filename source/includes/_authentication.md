@@ -1,12 +1,12 @@
 # Authentication
 
-> SEOBot expects an access token to be included in the header of each request made to the API. This header field is defined as follows:
+> SEO Bot expects an access token to be included in the header of each request made to the API. This header field is defined as follows:
 
 ```
 Authorization: access-token
 ```
 
-SEOBot uses access tokens to authenticate requests made to the API. Each access token is linked to a single account and is only valid for one unique endpoint i.e. google, bing, yandex or duckduckgo.
+SEO Bot uses access tokens to authenticate requests made to the API. Each access token is linked to a single account and is only valid for one unique endpoint i.e. google, bing, yandex or duckduckgo.
 
 Each account may have multiple access tokens across multiple endpoints, and the number of requests that may be made using these tokens will be based on the account's limits.
 

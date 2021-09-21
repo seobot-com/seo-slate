@@ -8,7 +8,7 @@
 
 > 3. Response body parameters
 
-Welcome to the SEOBot API! This API allows access to our web scraping service, which is used to query and collect information and metadata about search results returned using supported web browsers. 
+Welcome to the SEO Bot API! This API allows access to our web scraping service, which is used to query and collect information and metadata about search results returned using supported web browsers. 
 
 You can find usage examples in the dark area to the right, and you can change the programming language of the examples with the tabs in the top right. Examples have been given in Shell, Python, Golang and JavaScript!
 

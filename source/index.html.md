@@ -1,5 +1,5 @@
 ---
-title: SEOBot API Reference
+title: SEO Bot API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
