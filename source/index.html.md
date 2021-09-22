@@ -10,7 +10,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='https://seobot.memberful.com/account'>My Account</a>
   - <a href='https://seobot.memberful.com/auth/sign_out'>Logout</a>
-  - <a href='#'></a>
+  - <a href='#'>&nbsp;</a>
   - <a href='https://seobot.memberful.com/checkout?plan=71186'>Sign up for an API key</a>
 
 includes:
