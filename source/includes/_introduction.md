@@ -13,3 +13,5 @@ Welcome to the SEO Bot API. This API allows access to our search engine proxy se
 You can find usage examples in the dark area to the right, and you can change the programming language of the examples with the tabs in the top right. Examples have been given in Shell, Python, Golang and JavaScript!
 
 If you would like any changes or additions to be made to our documentation, functionality or examples, please send your suggestions to <a href="mailto:admin@seobot.com">admin@seobot.com</a>.
+
+<a href="https://seobot.memberful.com/join" style="font-weight: bold; color:#a01b73;">Sign up for an API key</a>
