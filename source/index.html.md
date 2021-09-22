@@ -8,8 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='https://seobot.memberful.com/join'>Sign up for an API key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='https://seobot.memberful.com/checkout?plan=71186'>Sign up for an API key</a>
 
 includes:
   - introduction
