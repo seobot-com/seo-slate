@@ -11,8 +11,8 @@ payload = {
              "language": "en",
              "country" : "za",
 
-             "start"   : 5,
-             "num"     : 3
+             "start"   : 0,
+             "num"     : 10
          }
 
 request = requests.post('https://api.seobot.com:11115/google/search',
@@ -46,7 +46,7 @@ payload = {
             "sort"    : "ratingHigh",
 
             "language": "en",
-            "start"   : 5
+            "start"   : 0
          }
 
 request = requests.post('https://api.seobot.com:11115/google/reviews',

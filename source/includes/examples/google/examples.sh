@@ -10,8 +10,8 @@ curl 'https://api.seobot.com:11115/google/search' \
             "language": "en",
             "country" : "za",
 
-            "start"   : 5,
-            "num"     : 3
+            "start"   : 0,
+            "num"     : 10
          }'
 
 # Image search
@@ -33,7 +33,7 @@ curl 'https://api.seobot.com:11115/google/reviews' \
             "sort"    : "ratingHigh",
 
             "language": "en",
-            "start"   : 5
+            "start"   : 0
          }'
 
 # Trends search
