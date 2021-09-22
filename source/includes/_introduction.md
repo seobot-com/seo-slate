@@ -1,6 +1,6 @@
 # Introduction
 
-> <u>All examples are laid out as follows:</u>
+> <u>All examples are structured as follows:</u>
 
 > 1. Request body parameters
 
@@ -8,7 +8,7 @@
 
 > 3. Response body parameters
 
-Welcome to the SEO Bot API. This API allows access to our search engine crawling service, which is used to query and collect information and metadata about search results returned by common search engines. 
+Welcome to the SEO Bot API. This API allows access to our search engine proxy service, which is used to programmatically query and collect information about search engine results. 
 
 You can find usage examples in the dark area to the right, and you can change the programming language of the examples with the tabs in the top right. Examples have been given in Shell, Python, Golang and JavaScript!
 
