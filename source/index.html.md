@@ -12,8 +12,6 @@ toc_footers:
   - <a href='https://seobot.memberful.com/auth/sign_out'>Logout</a>
   - <a href='#'>&nbsp;</a>
   - <a href='https://seobot.memberful.com/join'>Sign up for an API key</a>
-  - <a href='#'>&nbsp;</a>
-  - Partnered with <a href="https://www.ranktank.org" target="_blank">RankTank</a>
 
 includes:
   - introduction
