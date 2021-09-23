@@ -17,5 +17,5 @@ You can find usage examples in the dark area to the right, and you can change th
 If you would like any changes or additions to be made to our documentation, functionality or examples, please send your suggestions to <a href="mailto:admin@seobot.com">admin@seobot.com</a>.
 
 <aside class="success">
-The <a href="https://gsuite.google.com/marketplace/app/ranktank/22225448367" target="_blank">RankTank Google Sheet addon</a> is a great example of a tool using our API. Keyword rank checking automated for your domain using only Google Sheets.
+The <a href="https://gsuite.google.com/marketplace/app/ranktank/22225448367" target="_blank">RankTank Google Sheet addon</a> is a great example of a tool using our SERP proxy API. Keyword rank checking automated for your domain using only Google Sheets.
 </aside>

@@ -1,5 +1,5 @@
 ---
-title: SEO Bot API Reference
+title: SEO Bot SERP Proxy API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
