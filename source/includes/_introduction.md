@@ -14,7 +14,7 @@ Welcome to the SEO Bot API. This API allows access to our search engine proxy se
 
 You can find usage examples in the dark area to the right, and you can change the programming language of the examples with the tabs in the top right. Examples have been given in Shell, Python, Golang and JavaScript!
 
-If you would like any changes or additions to be made to our documentation, functionality or examples, please send your suggestions to <a href="mailto:admin@seobot.com">admin@seobot.com</a>.
+If you would like any changes or additions to be made to our documentation, functionality or examples, please send your suggestions to <a href="mailto:support@seobot.com">support@seobot.com</a>.
 
 <aside class="success">
 The <a href="https://gsuite.google.com/marketplace/app/ranktank/22225448367" target="_blank">RankTank Google Sheet addon</a> is a great example of a tool using our SERP proxy API. Keyword rank checking automated for your domain using only Google Sheets.

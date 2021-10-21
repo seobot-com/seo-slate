@@ -10,7 +10,11 @@ SEO Bot uses access tokens to authenticate requests made to the API. Each access
 
 Each account may have multiple access tokens across multiple endpoints, and the number of requests that may be made using these tokens will be based on the account limits.
 
-To apply for an account or manage your access tokens, please visit <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">www.example.com</a>.
+When creating a new account, one token for each supported endpoint will be provided to you by default. To apply for an account, please visit our <a href="https://seobot.memberful.com/join">subscriptions</a> page to see available packages.
+
+<aside class="info">
+Token management through the API is currently under development and will be made available soon. In the interim, if you wish to create additional tokens or replace/delete existing tokens, please send your requests to <a href="mailto:admin@seobot.com">admin@seobot.com</a>.
+</aside>
 
 <aside class="warning">
 Be careful when using or distributing your access tokens. Requests made using these tokens will be billed against the associated account.
