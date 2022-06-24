@@ -153,7 +153,7 @@ Parameter | Type | Required | Description
 --------- | -----| -------- | -----------
 keywords  |String| Yes      | Keywords for which to search
 mobile    | Bool | No       | Indicates whether the user-agent is a mobile or desktop device (Default: false)
-type      |String| No       | Used to set the search type (Default: all) </br> <u>Available Options:</u> </br>&bull; `shop` -> Shopping </br>&bull; `isch` -> Images </br>&bull; `nws` -> News </br>&bull; `jobs` -> Jobs
+type      |String| No       | Used to set the search type (Default: all) </br> <u>Available Options:</u> </br>&bull; `shop` -> Shopping  </br>&bull; `isch` -> Images </br>&bull; `vid` -> Videos </br>&bull; `nws` -> News </br>&bull; `jobs` -> Jobs
 
 ### Localization parameters
 
